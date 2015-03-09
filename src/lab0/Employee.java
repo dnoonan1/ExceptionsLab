@@ -27,19 +27,19 @@ public class Employee {
     private int daysVacation;
 
     public Employee() {
-        firstName = "Unknown";
-        lastName = "Unknown";
-        ssn = "Unknown";
-        hireDate = new Date();
-        daysVacation = 0;
+        setFirstName("Unknown");
+        setLastName("Unknown");
+        setSsn("Unknown");
+        setHireDate(new Date());
+        setDaysVacation(0);
     }
 
     public Employee(String firstName, String lastName, String ssn, Date hireDate, int daysVacation) throws IllegalArgumentException {
         setFirstName(firstName);
         setLastName(lastName);
         setSsn(ssn);
-        this.hireDate = hireDate;
-        this.daysVacation = daysVacation;
+        setHireDate(hireDate);
+        setDaysVacation(daysVacation);
     }
     
     public int getDaysVacation() {
@@ -70,7 +70,6 @@ public class Employee {
     }
 
     public void setHireDate(Date hireDate) {
-        
         this.hireDate = hireDate;
     }
 
@@ -99,6 +98,7 @@ public class Employee {
     // 333-33-3333
     // 333333333
     public void setSsn(String ssn) {
+        // Too complicated! Use a pre-written library
 //        if (ssn == null || ssn.length() < 9) {
 //            throw new IllegalArgumentException();
 //        } else {

@@ -18,9 +18,26 @@ public class NameService {
      * @param fullName - a name containing a first name and a last name
      * @return the last name
      */
-    public String extractLastName(String fullName) {
-        String[] nameParts = fullName.split(" ");
-        return nameParts[LAST_NAME_IDX];
+    public String extractLastName(String fullName)
+            throws IllegalNameException {
+        
+        // First, throw an Exception if fullName is null or empty
+        if (fullName == null || fullName.isEmpty()) {
+            throw new IllegalArgumentException();
+        } else {
+            
+            // Divide fullName into tokens separated by space
+            String[] nameParts = nameParts = fullName.split(" ");
+            
+            // If fullname doesn't have two tokens, throw an Exception
+            if (nameParts.length != 2) {
+                throw new IllegalArgumentException();
+            }
+            
+            // Return the second of two tokens (the last name)
+            return nameParts[LAST_NAME_IDX];
+            
+        }
     }
     
     /**
@@ -30,9 +47,26 @@ public class NameService {
      * @param fullName - a name containing a first name and a last name
      * @return the first name
      */
-    public String extractFirstName(String fullName) {
-        String[] nameParts = fullName.split(" ");
-        return nameParts[FIRST_NAME_IDX];
+    public String extractFirstName(String fullName)
+            throws IllegalNameException {
+        
+        // First, throw an Exception if fullName is null or empty
+        if (fullName == null || fullName.isEmpty()) {
+            throw new IllegalArgumentException();
+        } else {
+            
+            // Divide fullName into tokens separated by space
+            String[] nameParts = nameParts = fullName.split(" ");
+            
+            // If fullname doesn't have two tokens, throw an Exception
+            if (nameParts.length != 2) {
+                throw new IllegalArgumentException();
+            }
+            
+            // Return the first of two tokens (the first name)
+            return nameParts[FIRST_NAME_IDX];
+            
+        }
     }
 
     /**

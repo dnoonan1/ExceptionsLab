@@ -28,20 +28,33 @@ public class Challenge1 {
                 String lastName = app.extractLastName(fullName);
                 msg = "Your last name is: " + lastName;
                 break;
-            } catch (Exception e) {
+            } catch (IllegalArgumentException e) {
                 JOptionPane.showMessageDialog(null, "Try again!");
             }
         } while(true);
         JOptionPane.showMessageDialog(null, msg);
     }
     
-    public String extractLastName(String fullName) throws Exception {
+    public String extractLastName(String fullName)
+            throws IllegalArgumentException {
         
-        String[] nameParts = fullName.split(" ");
-        if (fullName == null || fullName.isEmpty() || nameParts.length != 2) {
-            throw new Exception();
+        // First, throw an Exception if fullName is null or empty
+        if (fullName == null || fullName.isEmpty()) {
+            throw new IllegalArgumentException();
+        } else {
+            
+            // Divide fullName into tokens separated by space
+            String[] nameParts = nameParts = fullName.split(" ");
+            
+            // If fullname doesn't have two tokens, throw an Exception
+            if (nameParts.length != 2) {
+                throw new IllegalArgumentException();
+            }
+            
+            // Return the second of two tokens (the last name)
+            return nameParts[1];
+            
         }
-        return nameParts[nameParts.length - 1];
     }
 
 }
